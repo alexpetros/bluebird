@@ -1,0 +1,6 @@
+# ignore any data globally
+*.csv
+*.html
+
+# ignore compiled files
+*.pyc
