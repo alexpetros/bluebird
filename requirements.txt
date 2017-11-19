@@ -1,0 +1,6 @@
+# pip requirements file 
+#
+# pip install -r requirments.text
+pandas
+numpy
+bs4

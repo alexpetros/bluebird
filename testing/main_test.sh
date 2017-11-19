@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./main.py ../datasets/top-messages/spencer.html ./spencer.csv
+./main.py ../datasets/top-messages/spencer.html ./testing/data/spencer.csv

@@ -1,11 +1,11 @@
 #!/usr/local/bin/python3
-
-import modules.parser as parser
-import pandas as pd 
-import numpy as np 
+import pandas as pd
+import numpy as np
 import sys
 
-# validate args 
+from voxdata import parser
+
+# validate args
 if len(sys.argv) != 3:
     print('Usage: [%s] [CHAT.html] [DEST FILEPATH]' % sys.argv[0])
     sys.exit(3)
@@ -18,5 +18,5 @@ data = parser.getMessageData(f.read())
 data = data.reindex(index=data.index[::-1])
 
 
-# write it to a csv 
+# write it to a csv
 data.to_csv(exportPath)

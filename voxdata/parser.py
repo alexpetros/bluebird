@@ -1,15 +1,15 @@
 from bs4 import BeautifulSoup
 import pandas as pd 
 
-# given text in HTML format, return dataframe
 def getMessageData(chat):
+    """given text in HTML format, return dataframe"""
+
     # get soup objects 
     soup = BeautifulSoup(chat, 'html.parser')
     thread = soup.find('div', attrs={'class': 'thread'})
     items = thread.contents
 
     # get each header and subsequent paragraph
-    # place each message data into a row 
     messages = []
     for i in range(1, len(items), 2):
         div = items[i]
@@ -27,4 +27,4 @@ def getMessageData(chat):
         # append dict to list of messages 
         messages.append(message)
     
-    return pd.DataFrame(messages) 
+    return pd.DataFrame(messages)
