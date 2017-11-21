@@ -1,6 +1,6 @@
 # pip requirements file 
 #
-# pip install -r requirments.text
+# pip install -r requirments.txt
 pandas
 numpy
 bs4

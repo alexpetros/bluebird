@@ -5,7 +5,7 @@ A lightweight platform for exporting and analyzing message history as data.
 Currently supports Facebook messanger. Teddy claims he can do iMesssage. We shall see. 
 
 ## Setup and Usage
-To install dependencies, run: `pip3 install -r requirements`
+To install dependencies, run: `pip3 install -r requirements.txt`
 
 To get .csv, run: `main.py [CHAT_FILEPATH.html] [DEST _FILEPATH.csv]`
 
@@ -24,10 +24,13 @@ The only HTML files cuurently supported are messenger files extracted from Faceb
 * Exports data in "clean" format to `.csv` file, where each row represents one message sent 
 
 ## What will it do?
-* Build convos by name from just pointing to data folder 
+* Build conversations by name from just pointing to data folder 
+* Cross-conversation analysis 
 * Classify conversations for more rigorious analysis
 * Output pre-defined analyses and graphs 
 * Support more chat platforms
 * Better user interface (as in, a Gov prof should be able to use it)
 
+## Contributing 
+See the TODO.md file in this directory and let people know what you're working on. 
 
