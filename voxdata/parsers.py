@@ -3,20 +3,31 @@ import pandas as pd
 
  
 # PLACEHOLDER: eventually this should distinguish b/w chat plaftorms
-def getChat(chat):
-    return FBchat(chat)
+def getChat(text):
+    return FBChat(text)
 
 
-class FBchat:
+class FBChat:
     """chat object for a Facebook conversation"""
-    HEADER_CONSTANT = len("Conversation with ")
+    HEADER_STRING= len("Conversation with ")
+    STYLE_STRING= '/* Copyright 2004-present Facebook. All Rights Reserved. */'
 
-    def __init__(self, chat):
+    def __init__(self, text):
         """ load parsing wrapper """
-        self.soup = BeautifulSoup(chat, 'html.parser')
+        self.soup = BeautifulSoup(text, 'html.parser')
+
+        if not self.isFBChatFile():
+            raise Exception('Not a Facebook chat file')
+
         self.client = ''
         self.users = self.getUsers()
         self.data = self.getMessageData()
+
+    def getUsers(self):
+        """get names of people in the conversation"""
+        title = self.soup.find('title').text[self.HEADER_STRING:]
+        names = title.split(", ")
+        return names    
 
     def getMessageData(self):
         """
@@ -38,7 +49,7 @@ class FBchat:
             timestamp = pd.to_datetime(div.find('span', attrs={'class': 'meta'}).text)
             text = items[i+1].text
 
-            # put into JSON for pandas use 
+            # JSON is easy for pandas to parse 
             message = {
                 'sender': name,
                 'timestamp': timestamp,
@@ -52,13 +63,10 @@ class FBchat:
                 self.client = name
                 foundSelf = True
 
-            # append dict to list of messages 
             messages.append(message)
         
         return pd.DataFrame(messages)
 
-    def getUsers(self):
-        """get names of people in the conversation"""
-        title = self.soup.find('title').text[self.HEADER_CONSTANT:]
-        names = title.split(", ")
-        return names
+
+    def isFBChatFile(self):
+        return self.soup.style.string[:59] == self.STYLE_STRING

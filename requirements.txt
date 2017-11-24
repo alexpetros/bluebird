@@ -4,3 +4,4 @@
 pandas
 numpy
 bs4
+pytest

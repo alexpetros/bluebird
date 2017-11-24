@@ -1,6 +1,8 @@
 # ignore any data globally
-*.csv
-*.html
+.csv
+.html
 
-# ignore compiled files
-*.pyc
+# ignore compiled files or cache
+.pyc
+.cache/
+__pycache__/
