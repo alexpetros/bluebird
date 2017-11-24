@@ -1,7 +1,9 @@
-# pip requirements file 
-#
-# pip install -r requirments.txt
-pandas
-numpy
+beautifulsoup4
 bs4
+numpy
+pandas
+py
 pytest
+python-dateutil
+pytz
+six

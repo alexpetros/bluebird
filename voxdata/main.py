@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import sys
 
-from voxdata import parsers
+import parsers
 
 # validate args
 if len(sys.argv) != 3:

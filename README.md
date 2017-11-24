@@ -5,11 +5,16 @@ A lightweight platform for exporting and analyzing message history as data.
 Currently supports Facebook messanger. Teddy claims he can do iMesssage. We shall see. 
 
 ## Setup and Usage
-To install dependencies, run: `pip3 install -r requirements.txt`
+To install dependencies, run: 
 
-To get .csv, run: `main.py [CHAT_FILEPATH.html] [DEST _FILEPATH.csv]`
+`pip install -r requirements.txt`
 
-To load as dataframe within python interpreter, run: 
+To run a script that automatically generates a .csv, run: 
+
+`./voxdata/main.py [CHAT_FILEPATH.html] [DEST _FILEPATH.csv]`
+
+To load chat history as a Pandas DataFrame run: 
+
 ```python
 from voxdata import parser
 f = open(CHAT_FILEPATH.html)
@@ -21,6 +26,7 @@ The only HTML files cuurently supported are messenger files extracted from Faceb
 ## What does it do?
 
 * Extracts each message and associates it with relevant metadata
+* Generates list of chat participants, including client 
 * Exports data in "clean" format to `.csv` file, where each row represents one message sent 
 
 ## What will it do?
@@ -33,4 +39,8 @@ The only HTML files cuurently supported are messenger files extracted from Faceb
 
 ## Contributing 
 See the TODO.md file in this directory and let people know what you're working on. 
+
+To run current testing suite:
+
+`python -m pytest` 
 
