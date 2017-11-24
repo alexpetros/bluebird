@@ -21,6 +21,6 @@ Making it easier to extract insight from the data generated
 ## Product Management
 Going the distance
 
-* Core unit testing framework
+* Set up virtual environment
 * Clearner dependency management
 * Makefile?

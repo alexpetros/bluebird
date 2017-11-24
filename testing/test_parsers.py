@@ -1,4 +1,5 @@
 import unittest, pytest
+from pandas import Timestamp
 from voxdata.parsers import getChat
 
 class FBChatTest(unittest.TestCase):
@@ -9,8 +10,8 @@ class FBChatTest(unittest.TestCase):
     TEST_ROW = ['Blsck', 'Leo Tolstoy', Timestamp('2011-03-08 04:13:00'), 5]
     
     def setUp(self):
-        self.htmlFile = 'fbtest.html'
-        self.chat = getChat(open(htmlFile).read())
+        self.htmlFile = './testing/fbtest.html'
+        self.chat = getChat(open(self.htmlFile).read())
 
     def test_get_users(self):
         assert self.chat.users == self.TEST_USERS
