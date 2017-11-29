@@ -17,8 +17,9 @@ To load chat history as a Pandas DataFrame run:
 
 ```python
 from voxdata import parser
+
 f = open(CHAT_FILEPATH.html)
-data = parser(f.read())
+data = parsers.getChat(f.read())
 ```
 
 The only HTML files cuurently supported are messenger files extracted from Facebook's data download. Better, more flexible user interface to come.
@@ -40,7 +41,7 @@ The only HTML files cuurently supported are messenger files extracted from Faceb
 ## Contributing 
 See the TODO.md file in this directory and let people know what you're working on. 
 
-To run current testing suite:
+To run current testing suite (from root directory):
 
 `python -m pytest` 
 

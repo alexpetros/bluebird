@@ -1,8 +1,12 @@
 ## Core Functionality 
 These are projects on the core platform, which expand the gathering and cleaning operations to enable deeper analysis.
 
-* Self-generate output file 
-* Build table of conversations for aggregate analysis
+New paradigm:
+
+* Messages Table: [message, sender, timestamp, wordcount, convo_id]
+* Conversations Table: [convo\_id, convo\_name, first\_message\_timestamp, last\_message\_timestamp, num\_messages]
+* People: [name, friend date]
+
 
 ## Interface
 These are projects on expanding the platform's ease of use, starting with cmd interface and eventually a gui?
@@ -21,6 +25,5 @@ Making it easier to extract insight from the data generated
 ## Product Management
 Going the distance
 
-* Set up virtual environment
 * Clearner dependency management
 * Makefile?

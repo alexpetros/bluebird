@@ -21,7 +21,11 @@ class FBChat:
 
         self.client = ''
         self.users = self.getUsers()
-        self.data = self.getMessageData()
+        self.messages = self.getMessages()
+
+        # test suite depends on pandas-ready data 
+        # investigate if this impacts time complexity
+        self.data = pd.DataFrame(self.messages)
 
     def getUsers(self):
         """get names of people in the conversation"""
@@ -29,7 +33,7 @@ class FBChat:
         names = title.split(", ")
         return names    
 
-    def getMessageData(self):
+    def getMessages(self):
         """
         given text in HTML format, return dataframe
 
@@ -46,7 +50,7 @@ class FBChat:
         for i in range(1, len(items), 2):
             div = items[i]
             name = div.find('span', attrs={'class': 'user'}).text
-            timestamp = pd.to_datetime(div.find('span', attrs={'class': 'meta'}).text)
+            timestamp = pd.to_datetime(div.find('span', attrs={'class': 'meta'}).text[:-4])
             text = items[i+1].text
 
             # JSON is easy for pandas to parse 
@@ -65,8 +69,9 @@ class FBChat:
 
             messages.append(message)
         
-        return pd.DataFrame(messages)
+        return messages
 
 
     def isFBChatFile(self):
+        """checks header string to see if it matches expected style"""
         return self.soup.style.string[:59] == self.STYLE_STRING
