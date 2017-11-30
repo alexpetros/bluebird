@@ -7,13 +7,15 @@ Currently supports Facebook messanger. Teddy claims he can do iMesssage. We shal
 ## How to use
 
 ### Setup
-1. Download your data dump from Facebook. You can learn about that process [here](https://www.facebook.com/help/131112897028467 "Facebook Help Center"). It's not hard, you just submit a request and the data is ready to download in a few minutes.
+1. Requires Python 3. I recommend installing from brew so that the `python3` alias works, until I get dependencies working better. 
 
-2. Download and extract the folder somewhere.
+2. Download your data dump from Facebook. You can learn about that process [here](https://www.facebook.com/help/131112897028467 "Facebook Help Center"). It's not hard, just submit a request and the data is ready to download in a few minutes.
 
-3. Clone the repo. I'm not finished packaging it yet, so for now just work out of the repo's root directory and you're fine.
+3. Download and extract the folder somewhere.
 
-4. Install dependencies with: `pip install -r requirements.txt`
+4. Clone the repo. I'm not finished packaging it yet, so for now just work out of the repo's root directory and you're fine.
+
+5. Install dependencies with: `pip3 install -r requirements.txt`
 
 
 ### Script (easy)
@@ -65,5 +67,5 @@ See the TODO.md file in this directory and let people know what you're working o
 
 To run current testing suite (from root directory):
 
-`python -m pytest` 
+`python3 -m pytest` 
 
