@@ -1,4 +1,4 @@
-# Vox Data 
+# Bluebird  
 
 A lightweight platform for exporting and analyzing message history as data. 
 
@@ -9,16 +9,22 @@ To install dependencies, run:
 
 `pip install -r requirements.txt`
 
-To run a script that automatically generates a .csv, run: 
+To build aggregate history profile run:
 
-`./bluebird/main.py [CHAT_FILEPATH.html] [DEST _FILEPATH.csv]`
+```python
+from bluebird import profiles
 
-To load chat history as a Pandas DataFrame run: 
+profile = profiles.getProfile(FBDATA_FILEPATH)
+convo = profile.conversations
+messasges = profile.messages
+```
+
+To load a single chat as a Pandas DataFrame run: 
 
 ```python
 from bluebird import parser
 
-f = open(CHAT_FILEPATH.html)
+f = open(CHAT_FILEPATH)
 data = parsers.getChat(f.read())
 ```
 
@@ -26,12 +32,12 @@ The only HTML files cuurently supported are messenger files extracted from Faceb
 
 ## What does it do?
 
+* Builds full profile of your chat history in three discrete tables (okay right now it's two)
 * Extracts each message and associates it with relevant metadata
 * Generates list of chat participants, including client 
 * Exports data in "clean" format to `.csv` file, where each row represents one message sent 
 
 ## What will it do?
-* Build conversations by name from just pointing to data folder 
 * Cross-conversation analysis 
 * Classify conversations for more rigorious analysis
 * Output pre-defined analyses and graphs 

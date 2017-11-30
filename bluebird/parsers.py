@@ -3,8 +3,8 @@ import pandas as pd
 
  
 # PLACEHOLDER: eventually this should distinguish b/w chat plaftorms
-def getChat(text):
-    return FBChat(text)
+def getChat(text, convo_id=None):
+    return FBChat(text, convo_id)
 
 
 class FBChat:
@@ -12,7 +12,7 @@ class FBChat:
     HEADER_STRING= len("Conversation with ")
     STYLE_STRING= '/* Copyright 2004-present Facebook. All Rights Reserved. */'
 
-    def __init__(self, text):
+    def __init__(self, text, convo_id):
         """ load parsing wrapper """
         self.soup = BeautifulSoup(text, 'html.parser')
 
@@ -21,10 +21,10 @@ class FBChat:
 
         self.client = ''
         self.users = self.getUsers()
-        self.messages = self.getMessages()
+        # temp loading dialogue
+        print("saving chat with " + ", ".join(self.users))
+        self.messages = self.getMessages(convo_id)
 
-        # test suite depends on pandas-ready data 
-        # investigate if this impacts time complexity
         self.data = pd.DataFrame(self.messages)
 
     def getUsers(self):
@@ -33,7 +33,7 @@ class FBChat:
         names = title.split(", ")
         return names    
 
-    def getMessages(self):
+    def getMessages(self, convo_id):
         """
         given text in HTML format, return dataframe
 
@@ -58,7 +58,8 @@ class FBChat:
                 'sender': name,
                 'timestamp': timestamp,
                 'message': text,
-                'wordcount': len(text) 
+                'wordcount': len(text),
+                'convo_id': convo_id
             }
 
             # run a quick test to see if the user is in the senders yet

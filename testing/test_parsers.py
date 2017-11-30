@@ -6,8 +6,8 @@ class FBChatTest(unittest.TestCase):
 
     TEST_USERS = ['Kurt Vonnegut', 'Leo Tolstoy', 'Virginia Woolf']
     TEST_CLIENT = 'Toni Morrison'
-    TEST_COLUMNS = ['message', 'sender', 'timestamp', 'wordcount']
-    TEST_ROW = ['Blsck', 'Leo Tolstoy', Timestamp('2011-03-08 04:13:00'), 5]
+    TEST_COLUMNS = ['convo_id', 'message', 'sender', 'timestamp', 'wordcount']
+    TEST_ROW = [None, 'Blsck', 'Leo Tolstoy', Timestamp('2011-03-08 04:13:00'), 5]
     
     def setUp(self):
         self.htmlFile = './testing/fbtest.html'
