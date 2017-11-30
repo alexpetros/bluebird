@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='voxdata',
+    name='bluebird',
     version='0.1',
-    packages=['voxdata',],
+    packages=['bluebird',],
     license='',
     long_description=open('README.md').read(),
 )

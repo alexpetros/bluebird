@@ -11,12 +11,12 @@ To install dependencies, run:
 
 To run a script that automatically generates a .csv, run: 
 
-`./voxdata/main.py [CHAT_FILEPATH.html] [DEST _FILEPATH.csv]`
+`./bluebird/main.py [CHAT_FILEPATH.html] [DEST _FILEPATH.csv]`
 
 To load chat history as a Pandas DataFrame run: 
 
 ```python
-from voxdata import parser
+from bluebird import parser
 
 f = open(CHAT_FILEPATH.html)
 data = parsers.getChat(f.read())

@@ -1,6 +1,6 @@
 import unittest, pytest
 from pandas import Timestamp
-from voxdata.parsers import getChat
+from bluebird.parsers import getChat
 
 class FBChatTest(unittest.TestCase):
 
