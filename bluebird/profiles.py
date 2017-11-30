@@ -29,7 +29,7 @@ class FBProfile:
         """build conversations and messages tables"""
         id_count = 1000
 
-        for file in self.chatlist:
+        for file in self.chatlist[:3]:
             text = open(file).read()
             chat = parsers.getChat(text, convo_id=id_count)
             
@@ -40,12 +40,12 @@ class FBProfile:
                     'uid': id_count,
                     'name': "chat with " + ", ".join(chat.users),
                     'num_messages': chat.data['sender'].count(),
-                    'first_message_timestamp': chat.data[:1].timestamp,
-                    'last_message_timestamp': chat.data[-1:].timestamp
+                    'first_message_timestamp': pd.to_datetime(chat.data[:1].timestamp.item()),
+                    'last_message_timestamp': pd.to_datetime(chat.data[-1:].timestamp.item())
                 }
 
                 # append to lists
                 conversations.append(convo)
-                messages.append(chat.messages)
+                messages.extend(chat.messages)
 
                 id_count += 10
