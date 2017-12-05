@@ -63,7 +63,7 @@ class FBChat:
             }
 
             # run a quick test to see if the user is in the senders yet
-            # practical chat limits prevent this from being too time-intensive
+            # participant limits prevent this from being too time-intensive
             if not foundSelf and name not in self.users:
                 self.client = name
                 foundSelf = True

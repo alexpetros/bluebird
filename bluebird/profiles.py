@@ -29,7 +29,7 @@ class FBProfile:
         """build conversations and messages tables"""
         id_count = 1000
 
-        for file in self.chatlist[:3]:
+        for file in self.chatlist:
             text = open(file).read()
             chat = parsers.getChat(text, convo_id=id_count)
             

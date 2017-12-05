@@ -43,6 +43,6 @@ def createStoreDir(path):
         extext = "Error: " + storedir + " already exists"
         raise Exception(extext)
 
-# run script 
+# run script if main
 if __name__ == '__main__':
     main(sys.argv)
